@@ -15,21 +15,23 @@ gem 'sass'
 gem 'coffee-script'
 
 # Test requirements
-gem 'rspec', :group => "test"
-gem 'rack-test', :require => "rack/test", :group => "test"
+group :test do
+  gem 'rspec', :group => "test"
+  gem 'rack-test', :require => "rack/test", :group => "test"
+end
 
+gem 'i18n'
 gem 'multi_json'
 gem 'oj'
 gem 'curb'
 gem 'hashie'
-# gem 'padrino-sprockets', :require => 'padrino/sprockets', git: "git://github.com/nightsailer/padrino-sprockets.git"
 gem 'padrino-assets'
 
 # Padrino Stable Gem
 gem 'padrino', '0.10.7'
 
 gem 'capistrano'
-gem 'capistrano-ext'
+gem 'capistrano_colors'
 
 # Or Padrino Edge
 # gem 'padrino', :git => 'git://github.com/padrino/padrino-framework.git'

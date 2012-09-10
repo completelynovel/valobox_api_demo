@@ -10,8 +10,7 @@ GEM
       net-sftp (>= 2.0.0)
       net-ssh (>= 2.0.14)
       net-ssh-gateway (>= 1.1.0)
-    capistrano-ext (1.2.1)
-      capistrano (>= 1.0.0)
+    capistrano_colors (0.5.5)
     coffee-script (2.2.0)
       coffee-script-source
       execjs
@@ -119,11 +118,12 @@ PLATFORMS
 
 DEPENDENCIES
   capistrano
-  capistrano-ext
+  capistrano_colors
   coffee-script
   curb
   haml
   hashie
+  i18n
   multi_json
   oj
   padrino (= 0.10.7)
