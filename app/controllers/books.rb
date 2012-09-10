@@ -19,12 +19,12 @@ ApiDemo.controllers :books do
   # end
 
   get :index do
-    @streams = Stream.where("q=#{params[:query]}")
+    @streams = ::Stream.where("q=#{params[:query]}")
     render "books/index"
   end
 
   get :show, with: :id do
-    @stream = Stream.find(params[:id])
+    @stream = ::Stream.find(params[:id])
     render 'books/show'
   end
 
