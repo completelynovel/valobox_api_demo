@@ -49,6 +49,10 @@ class ApiDemo < Padrino::Application
   #   end
   #
 
+  get "/" do
+    redirect url(:books, :index)
+  end
+
   ##
   # You can manage errors like:
   #

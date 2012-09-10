@@ -1,10 +1,10 @@
 
 .row
+  %h1 #{@stream.title}
   .span4
-    %h1 #{@stream.title}
 
-    %ul#menu.nav.nav-pills.nav-stacked.vscroll{style: "height: 600px"}
-      = partial "books/tocs", locals: { tocs: @stream.toc }
+    %ul#menu.nav.nav-tabs.nav-stacked.vscroll
+      = partial "books/tocs", locals: { tocs: @stream.toc, level: 1 }
 
   .span8
     .navbar
@@ -15,7 +15,10 @@
           %li
             %a.next-page Next Page
 
-    #widget
+    #widget.viewing_widget
       %a{"data-valobox-type" => "reader", :target => "_blank", href: @stream.reader_url, id: "valobox-reader"}
+
+    %br
+    = @stream.about
 
     %script{src: @stream.embed_script, type: "text/javascript"}

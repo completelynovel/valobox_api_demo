@@ -1,10 +1,15 @@
-%h1 Books Available
+%h1 Browse Books
 
-%ul.thumbnails
-  - @streams.each do |stream|
+.row
+  = form_tag url_for(:books, :index), method: :get, class: "form-search" do
+    %p
+      = text_field_tag "query", value: params[:query], placeholder: "Search terms", class: "search-query"
+      = submit_tag "Search", class: "btn"
 
-    %li.span4
-      .thumbnail.thumb
-        = link_to image_tag("//assets.valobox.dev/#{stream.large_image_url}"), url_for(:books, :show, stream.id)
-        %h4= link_to stream.title, url_for(:books, :show, stream.id)
-        =# stream.about
+  %ul.thumbnails
+    - @streams.each do |stream|
+
+      %li.span4
+        .thumbnail.thumb
+          = link_to image_tag("//assets.valobox.dev/#{stream.large_image_url}"), url_for(:books, :show, stream.id)
+          %h4= link_to stream.title, url_for(:books, :show, stream.id)

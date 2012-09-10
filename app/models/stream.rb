@@ -19,7 +19,6 @@ class Stream
   attr_accessor :data
 
   def initialize(hash)
-    puts hash.inspect
     @data = Hashie::Mash.new hash
   end
 

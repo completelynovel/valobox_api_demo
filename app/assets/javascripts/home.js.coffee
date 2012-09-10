@@ -35,7 +35,6 @@ valobox.bind 'ready', () ->
 
     # turn to previous page
     $("a.prev-page").click (e) ->
-      console.log "click!!!!!!!!!!!!!!!!!!!!"
       widget.pageUp()
 
 

@@ -24,7 +24,6 @@ ApiDemo.controllers :books do
   end
 
   get :show, with: :id do
-    # @stream = ValoBox::Api.find(params[:id])
     @stream = Stream.find(params[:id])
     render 'books/show'
   end

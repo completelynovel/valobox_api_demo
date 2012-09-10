@@ -6,10 +6,8 @@
     %title= [@title, "Cambridge GO"].compact.join(" | ")
     %meta{:content => "", :name => "description"}/
     %meta{:content => "", :name => "author"}/
-    = stylesheet_link_tag "bootstrap"
     %link{href: "/assets/application.css", media: "screen", rel: "stylesheet", type: "text/css"}
 
-    =# yield(:head)
   %body
     %header.navbar.navbar-fixed-top
       %nav.navbar-inner
@@ -22,7 +20,4 @@
             .span12
               = yield
           %footer
-      / ! end of .container
-    / ! end of #main
-    -#%script{src: "http://reader.valobox.dev/api.js", type: "text/javascript"}
     %script{src: "/assets/application.js", type: "text/javascript"}
