@@ -1,0 +1,10 @@
+%h1 Books Available
+
+%ul.thumbnails
+  - @streams.each do |stream|
+
+    %li.span4
+      .thumbnail.thumb
+        = link_to image_tag("//assets.valobox.dev/#{stream.large_image_url}"), url_for(:books, :show, stream.id)
+        %h4= link_to stream.title, url_for(:books, :show, stream.id)
+        =# stream.about
