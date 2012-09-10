@@ -29,6 +29,8 @@ set :default_environment, {
   'PATH' => "$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH"
 }
 
+after "deploy:update_code", "deploy:assets:precompile"
+
 # If you are using Passenger mod_rails uncomment this:
 namespace :deploy do
   task :start do ; end
@@ -39,10 +41,10 @@ namespace :deploy do
 
   namespace :assets do
     task :precompile, :roles => :web, :except => { :no_release => true } do
-      run "cd #{latest_release} && rake RACK_ENV=production assets:precompile"
+      run "cd #{latest_release} && bundle exec rake RACK_ENV=production assets:precompile"
     end
   end
 end
 
 
-load 'deploy/assets' # need to put after deploy:copy_config
+# load 'deploy/assets' # need to put after deploy:copy_config
