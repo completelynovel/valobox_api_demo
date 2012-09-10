@@ -6,8 +6,16 @@ class ApiDemo < Padrino::Application
 
   enable :sessions
 
-  register Padrino::Sprockets
-  sprockets :url => 'assets', :root => root
+  register Padrino::Assets
+  # register Padrino::Sprockets
+  # sprockets :url => 'assets', :root => root
+
+  set :precompile_assets, [
+    'application.js',
+    'application.css',
+    '*.jpg',
+    '*.png'
+  ]
 
   ##
   # Caching support

@@ -6,7 +6,7 @@
     %title= [@title, "Cambridge GO"].compact.join(" | ")
     %meta{:content => "", :name => "description"}/
     %meta{:content => "", :name => "author"}/
-    %link{href: "/assets/application.css", media: "screen", rel: "stylesheet", type: "text/css"}
+    = stylesheet_link_tag "application"
 
   %body
     %header.navbar.navbar-fixed-top
@@ -20,4 +20,4 @@
             .span12
               = yield
           %footer
-    %script{src: "/assets/application.js", type: "text/javascript"}
+    = javascript_include_tag "application"

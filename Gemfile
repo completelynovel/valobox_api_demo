@@ -22,7 +22,8 @@ gem 'multi_json'
 gem 'oj'
 gem 'curb'
 gem 'hashie'
-gem 'padrino-sprockets', :require => 'padrino/sprockets', git: "git://github.com/nightsailer/padrino-sprockets.git"
+# gem 'padrino-sprockets', :require => 'padrino/sprockets', git: "git://github.com/nightsailer/padrino-sprockets.git"
+gem 'padrino-assets'
 
 # Padrino Stable Gem
 gem 'padrino', '0.10.7'
