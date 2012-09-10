@@ -1,7 +1,12 @@
 # Helper methods defined here can be accessed in any controller or view in the application
 
 ApiDemo.helpers do
-  # def simple_helper_method
-  #  ...
-  # end
+  def valobox_asset(path)
+    case ENV['RACK_ENV']
+    when "production"
+      "//assets.valobox.com/#{path}"
+    else
+      "//assets.valobox.dev/#{path}"
+    end
+  end
 end
