@@ -15,10 +15,10 @@ gem 'sass'
 gem 'coffee-script'
 
 # Test requirements
-# group :test do
-#   gem 'rspec', :group => "test"
-#   gem 'rack-test', :require => "rack/test", :group => "test"
-# end
+group :test do
+  gem 'rspec'
+  gem 'rack-test', :require => "rack/test"
+end
 
 gem 'i18n'
 gem 'multi_json'

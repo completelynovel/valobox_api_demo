@@ -53,7 +53,7 @@ class Stream
   class << self
 
     def tornado_url
-      case ENV['RACK_ENV']
+      case ENV['PADRINO_ENV']
       when "production"
         "http://tornado.valobox.com/v1/streams"
       else

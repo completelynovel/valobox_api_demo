@@ -2,7 +2,7 @@
 
 ApiDemo.helpers do
   def valobox_asset(path)
-    # case ENV['RACK_ENV']
+    # case ENV['PADRINO_ENV']
     # when "production"
     #   "//assets.valobox.com/#{path}"
     # else

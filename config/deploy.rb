@@ -41,7 +41,7 @@ namespace :deploy do
 
   namespace :assets do
     task :precompile, :roles => :web, :except => { :no_release => true } do
-      run "cd #{latest_release} && bundle exec rake RACK_ENV=production assets:precompile"
+      run "cd #{release_path} && PADRINO_ENV=production bundle exec rake assets:precompile"
     end
   end
 end
