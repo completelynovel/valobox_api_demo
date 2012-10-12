@@ -2,11 +2,12 @@
 
 ApiDemo.helpers do
   def valobox_asset(path)
-    case ENV['RACK_ENV']
-    when "production"
-      "//assets.valobox.com/#{path}"
-    else
-      "//assets.valobox.dev/#{path}"
-    end
+    # case ENV['RACK_ENV']
+    # when "production"
+    #   "//assets.valobox.com/#{path}"
+    # else
+    #   "//assets.valobox.dev/#{path}"
+    # end
+    path
   end
 end

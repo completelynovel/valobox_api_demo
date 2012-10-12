@@ -16,8 +16,9 @@
             %a.next-page Next Page
 
     #widget.viewing_widget
-      %a{"data-valobox-type" => "reader", :target => "_blank", href: @stream.reader_url, id: "valobox-reader"}
+      %a{"data-valobox-type" => "reader", target: "_blank", href: @stream.reader_url, id: "valobox-reader"}
 
+    = @stream.reader_url
     %br
     = @stream.about
 
