@@ -2,8 +2,15 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 valobox.bind 'ready', () ->
-  
+
   valobox.widget('#valobox-reader').bind 'ready', (widget) ->
+
+    $('a.start').click (e) ->
+      widget.start()
+
+
+  valobox.widget('#valobox-reader').bind 'loaded', (widget) ->
+
     # find the toc menu object
     menu = $('ul#menu')
 
@@ -41,3 +48,8 @@ valobox.bind 'ready', () ->
     # turn to the next page
     $("a.next-page").click (e) ->
       widget.pageDown()
+
+    # alert the current page
+    $("a.current-page").click (e) ->
+      widget.currentPage (success, value) =>
+        alert value

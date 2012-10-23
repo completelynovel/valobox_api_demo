@@ -14,12 +14,16 @@
             %a.prev-page Previous Page
           %li
             %a.next-page Next Page
+          //%li
+          //  %a.start Start app
+          //%li
+          //  %a.current-page Get Current Page
 
     #widget.viewing_widget
-      %a{"data-valobox-type" => "reader", target: "_blank", href: @stream.reader_url, id: "valobox-reader"}
+      //%a{"data-valobox-type" => "reader", target: "_blank", href: @stream.reader_url, id: "valobox-reader"}
+      %iframe{src: @stream.reader_url, class: "valobox", id: "valobox-reader", "data-valobox-type" => "reader", style: "width: 100%; height: 100%;"}
 
-    = @stream.reader_url
     %br
     = @stream.about
 
-    %script{src: @stream.embed_script, type: "text/javascript"}
+    %script{src: @stream.embed_script, type: "text/javascript"} 
