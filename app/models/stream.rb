@@ -1,20 +1,4 @@
-class Stream
-
-  def self.find(id)
-    resp = get(stream_url(id.to_s))
-    data = Oj.load(resp)
-    self.new data["data"]
-  end
-
-  def self.where(query)
-    resp = get("#{stream_index_url}?#{query}")
-    data = Oj.load(resp)
-    out = []
-    data["data"]["results"].values.compact.each do |stream|
-      out << self.new(stream)
-    end
-    out
-  end
+class Stream < VbBase
 
   attr_accessor :data
 
@@ -52,6 +36,22 @@ class Stream
 
   class << self
 
+    def find(id)
+      resp = get(stream_url(id.to_s))
+      data = Oj.load(resp)
+      self.new data["data"]
+    end
+
+    def where(query)
+      resp = get("#{stream_index_url}?#{query}")
+      data = Oj.load(resp)
+      out = []
+      data["data"]["results"].values.compact.each do |stream|
+        out << self.new(stream)
+      end
+      out
+    end
+
     def valobox_url
       case ENV['RACK_ENV']
       when 'production'
@@ -81,63 +81,6 @@ class Stream
 
     def embed_script
       "#{reader_url}/api.js"
-    end
-
-    def timeout
-      2
-    end
-
-    def get(url, options = {})
-      options[:timeout] ||= timeout
-
-      # Setup the request url and headers
-      curl = Curl::Easy.new(url) do |req|
-        req.timeout = options[:timeout]
-      end
-
-      # Make the request
-      curl.http_get
-      
-      # Return a rack response array
-      raise curl.body_str unless curl.response_code == 200
-      curl.body_str
-    end
-
-    def post(url, fields = [], options = {})
-      options[:timeout] ||= timeout
-
-      # Setup the request url and headers
-      curl = Curl::Easy.new(url) do |req|
-        req.timeout = options[:timeout]
-      end
-
-      # Make the request
-      curl.http_post( fields )
-      
-      # Return a rack response array
-      raise curl.body_str unless curl.response_code == "200"
-      Hashie::Mash.new curl.body_str
-    end
-
-    def put(url, fields = [], options = {})
-      fields << Curl::PostField.content(:_method, :put) 
-      post(url, fields, options)
-    end
-
-    def delete(url, options = {})
-      options[:timeout] ||= timeout
-
-      # Setup the request url and headers
-      curl = Curl::Easy.new(url) do |req|
-        req.timeout = options[:timeout]
-      end
-
-      # Make the request
-      curl.http_delete
-      
-      # Return a rack response array
-      raise curl.body_str unless curl.response_code == "200"
-      Hashie::Mash.new curl.body_str
     end
   end
 

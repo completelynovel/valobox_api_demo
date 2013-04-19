@@ -1,15 +1,18 @@
-%h1 Browse Books
+.row
+  %span12
+    %h1 Browse Books
 
 .row
-  = form_tag url_for(:books, :index), method: :get, class: "form-search" do
-    %p
-      = text_field_tag "query", value: params[:query], placeholder: "Search terms", class: "search-query"
-      = submit_tag "Search", class: "btn"
+  %span12
+    = form_tag url_for(:books, :index), method: :get, class: "form-search" do
+      %p
+        = text_field_tag "query", value: params[:query], placeholder: "Search terms", class: "search-query"
+        = submit_tag "Search", class: "btn"
 
-  %ul.thumbnails
-    - @streams.each do |stream|
+    %ul.thumbnails
+      - @streams.each do |stream|
 
-      %li.span4
-        .thumbnail.thumb
-          = link_to image_tag( stream.large_image_url ), url_for(:books, :show, stream.id)
-          %h4= link_to stream.title, url_for(:books, :show, stream.id)
+        %li.span4
+          .thumbnail.thumb
+            = link_to image_tag( stream.large_image_url ), url_for(:books, :show, stream.id)
+            %h4= link_to stream.title, url_for(:books, :show, stream.id)

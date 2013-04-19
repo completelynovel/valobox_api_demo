@@ -10,7 +10,7 @@ set :deploy_to, "/home/#{user}/web/valobox_api_demo"
 
 set :bundle_without, [:test, :development]
 
-server "valobox.com", :web, :app, :db, primary:  true
+server "dex.valobox.com", :web, :app, :db, primary:  true
 
 ##############
 # capistrano setup
