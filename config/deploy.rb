@@ -1,4 +1,4 @@
-set :application, "valobox_api_demo"
+set :application, "api_demo.valobox.com"
 set :repository,  "git@github.com:completelynovel/valobox_api_demo.git"
 
 set :scm, :git
@@ -6,11 +6,11 @@ set :scm, :git
 set :use_sudo, false
 set :user,      "deploy"
 set :branch,    "master"
-set :deploy_to, "/home/#{user}/web/valobox_api_demo"
+set :deploy_to, "/home/#{user}/web/#{application}"
 
 set :bundle_without, [:test, :development]
 
-server "dex.valobox.com", :web, :app, :db, primary:  true
+server "bruce.valobox.com", :web, :app, :db, primary:  true
 
 ##############
 # capistrano setup
