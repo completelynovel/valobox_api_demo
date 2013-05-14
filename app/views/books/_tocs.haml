@@ -2,6 +2,6 @@
   - next_toc = tocs[ tocs.index(toc) + 1 ] || tocs.last
   %li
     %a{start_page: toc.page_index, end_page: next_toc.page_index }= toc.label
-    - if toc.children.present? && level < 2
+    - if toc.tocs.present? && level < 2
       %ul.nav.nav-tabs.nav-stacked
-        = partial "books/tocs", locals: { tocs: toc.children, level: level + 1 }
+        = partial "books/tocs", locals: { tocs: toc.tocs, level: level + 1 }
